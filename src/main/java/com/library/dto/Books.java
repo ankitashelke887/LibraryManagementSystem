@@ -11,18 +11,68 @@ public class Books {
     private int publicationYear;
     private int quantity;
 
-    public Books() {
-    }
+    public int getBookId() {
+		return bookId;
+	}
 
-    public Books(int bookId, String title, int authorId, int categoryId,
-                 int publisherId, String isbn, int publicationYear, int quantity) {
-        this.bookId = bookId;
-        this.title = title;
-        this.authorId = authorId;
-        this.categoryId = categoryId;
-        this.publisherId = publisherId;
-        this.isbn = isbn;
-        this.publicationYear = publicationYear;
-        this.quantity = quantity;
-    }
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public int getPublisherId() {
+		return publisherId;
+	}
+
+	public void setPublisherId(int publisherId) {
+		this.publisherId = publisherId;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public int getPublicationYear() {
+		return publicationYear;
+	}
+
+	public void setPublicationYear(int publicationYear) {
+		this.publicationYear = publicationYear;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 }

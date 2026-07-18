@@ -8,17 +8,6 @@ package com.library.dto;
       private String phone;
       private String password;
 
-      public Admin() {
-      }
-
-      public Admin(int adminId, String name, String email, String phone, String password) {
-          this.adminId = adminId;
-          this.name = name;
-          this.email = email;
-          this.phone = phone;
-          this.password = password;
-      }
-
       public int getAdminId() {
           return adminId;
       }

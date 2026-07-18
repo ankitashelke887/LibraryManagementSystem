@@ -6,15 +6,6 @@ public class Categories {
     private String cName;
     private String description;
 
-    public Categories() {
-    }
-
-    public Categories(int categoryId, String cName, String description) {
-        this.categoryId = categoryId;
-        this.cName = cName;
-        this.description = description;
-    }
-
     public int getCategoryId() {
         return categoryId;
     }

@@ -12,18 +12,60 @@ public class IssuedBooks {
 	    private Date returnDate;
 	    private String status;
 
-	    public IssuedBooks() {
-	    }
+	    public int getIssueId() {
+			return issueId;
+		}
 
-	    public IssuedBooks(int issueId, int userId, int bookId,
-	                       Date issueDate, Date dueDate,
-	                       Date returnDate, String status) {
-	        this.issueId = issueId;
-	        this.userId = userId;
-	        this.bookId = bookId;
-	        this.issueDate = issueDate;
-	        this.dueDate = dueDate;
-	        this.returnDate = returnDate;
-	        this.status = status;
-	    }
+		public void setIssueId(int issueId) {
+			this.issueId = issueId;
+		}
+
+		public int getUserId() {
+			return userId;
+		}
+
+		public void setUserId(int userId) {
+			this.userId = userId;
+		}
+
+		public int getBookId() {
+			return bookId;
+		}
+
+		public void setBookId(int bookId) {
+			this.bookId = bookId;
+		}
+
+		public Date getIssueDate() {
+			return issueDate;
+		}
+
+		public void setIssueDate(Date issueDate) {
+			this.issueDate = issueDate;
+		}
+
+		public Date getDueDate() {
+			return dueDate;
+		}
+
+		public void setDueDate(Date dueDate) {
+			this.dueDate = dueDate;
+		}
+
+		public Date getReturnDate() {
+			return returnDate;
+		}
+
+		public void setReturnDate(Date returnDate) {
+			this.returnDate = returnDate;
+		}
+
+		public String getStatus() {
+			return status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
 }

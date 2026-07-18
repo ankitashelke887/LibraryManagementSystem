@@ -1,6 +1,6 @@
 package com.library.dto;
 
-import java.security.Timestamp;
+import java.time.LocalDate;
 
 public class Users {
 	private int userId;
@@ -9,21 +9,8 @@ public class Users {
     private String uPhone;
     private String address;
     private String password;
-    private Timestamp registeredDate;
+    private LocalDate registeredDate;
 
-    public Users() {
-    }
-
-    public Users(int userId, String uName, String email, String uPhone,
-                String address, String password, Timestamp registeredDate) {
-        this.userId = userId;
-        this.uName = uName;
-        this.email = email;
-        this.uPhone = uPhone;
-        this.address = address;
-        this.password = password;
-        this.registeredDate = registeredDate;
-    }
 
     public int getUserId() {
         return userId;
@@ -73,11 +60,11 @@ public class Users {
         this.password = password;
     }
 
-    public Timestamp getRegisteredDate() {
+    public LocalDate getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(Timestamp registeredDate) {
+    public void setRegisteredDate(LocalDate registeredDate) {
         this.registeredDate = registeredDate;
     }
 }

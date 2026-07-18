@@ -7,16 +7,6 @@ public class BookCopies {
 	    private String location;
 	    private String status;
 
-	    public BookCopies() {
-	    }
-
-	    public BookCopies(int copyId, int bookId, String location, String status) {
-	        this.copyId = copyId;
-	        this.bookId = bookId;
-	        this.location = location;
-	        this.status = status;
-	    }
-
 	    public int getCopyId() {
 	        return copyId;
 	    }

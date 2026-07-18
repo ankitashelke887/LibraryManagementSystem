@@ -7,18 +7,6 @@ public class Publishers {
     private String pPhone;
     private String pAddress;
 
-    public Publishers() {
-    }
-
-    public Publishers(int publisherId, String pName, String pEmail,
-                     String pPhone, String pAddress) {
-        this.publisherId = publisherId;
-        this.pName = pName;
-        this.pEmail = pEmail;
-        this.pPhone = pPhone;
-        this.pAddress = pAddress;
-    }
-
     public int getPublisherId() {
         return publisherId;
     }

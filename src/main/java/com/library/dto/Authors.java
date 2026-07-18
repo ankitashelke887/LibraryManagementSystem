@@ -7,18 +7,6 @@ public class Authors {
 	    private String email;
 	    private String bio;
 
-	    public Authors() {
-	    }
-
-	    public Authors(int authorId, String authorName, String country,
-	                  String email, String bio) {
-	        this.authorId = authorId;
-	        this.authorName = authorName;
-	        this.country = country;
-	        this.email = email;
-	        this.bio = bio;
-	    }
-
 	    public int getAuthorId() {
 	        return authorId;
 	    }
