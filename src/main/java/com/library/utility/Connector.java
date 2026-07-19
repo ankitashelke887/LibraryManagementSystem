@@ -11,7 +11,7 @@ public class Connector {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library_management_system", "root", "tiger");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
