@@ -43,7 +43,7 @@ public class UserdaoImp implements Userdao {
 
     @Override
     public void updateuser(Users u) {
-        String query = "update users set uName=?, email=?, uPhone=?, address=?, password=?, registeredDate=? where userId=?";
+        String query = "update users set u_name=?, email=?, u_phone=?, address=?, password=?, registered_date=? where user_id=?";
         int i = 0;
 
         try {
@@ -63,7 +63,7 @@ public class UserdaoImp implements Userdao {
 
     @Override
     public void deleteuser(Integer userId) {
-        String query = "delete from users where userId=?";
+        String query = "delete from users where user_id=?";
         int i = 0;
 
         try {
@@ -86,13 +86,13 @@ public class UserdaoImp implements Userdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 u = new Users();
-                u.setUserId(rs.getInt("userId"));
-                u.setuName(rs.getString("uName"));
+                u.setUserId(rs.getInt("user_id"));
+                u.setuName(rs.getString("u_name"));
                 u.setEmail(rs.getString("email"));
-                u.setuPhone(rs.getString("uPhone"));
+                u.setuPhone(rs.getString("u_phone"));
                 u.setAddress(rs.getString("address"));
                 u.setPassword(rs.getString("password"));
-                Date date = rs.getDate("registeredDate");
+                Date date = rs.getDate("registered_date");
                 if (date != null) {
                     u.setRegisteredDate(date.toLocalDate());
                 }
@@ -118,13 +118,13 @@ public class UserdaoImp implements Userdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 u = new Users();
-                u.setUserId(rs.getInt("userId"));
-                u.setuName(rs.getString("uName"));
+                u.setUserId(rs.getInt("user_id"));
+                u.setuName(rs.getString("u_name"));
                 u.setEmail(rs.getString("email"));
-                u.setuPhone(rs.getString("uPhone"));
+                u.setuPhone(rs.getString("u_phone"));
                 u.setAddress(rs.getString("address"));
                 u.setPassword(rs.getString("password"));
-                Date date = rs.getDate("registeredDate");
+                Date date = rs.getDate("registered_date");
                 if (date != null) {
                     u.setRegisteredDate(date.toLocalDate());
                 }

@@ -40,7 +40,7 @@ public class AuthorsdaoImp implements Authorsdao{
 
 	@Override
 	public void updateauthor(Authors au) {
-		String query="update authors set authorname=?,country=?,bio=? where email=?";
+		String query="update authors set authorname=?,country=?,bio=?, email=? where authorId=?";
 		int i=0;
 		
 		try {
@@ -49,6 +49,7 @@ public class AuthorsdaoImp implements Authorsdao{
 			ps.setString(2, au.getCountry());
 			ps.setString(3, au.getBio());
 			ps.setString(4, au.getEmail());
+			ps.setInt(5, au.getAuthorId());
 			i=ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +60,7 @@ public class AuthorsdaoImp implements Authorsdao{
 
 	@Override
 	public void deleteauthor(Integer authorId) {
-		String query="delete from author where authorId=?";
+		String query="delete from authors where authorId=?";
 		int i=0;
 		
 		try {

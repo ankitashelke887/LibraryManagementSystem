@@ -28,7 +28,7 @@ public class AdmindaoImp implements Admindao{
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.setString(1, a.getName());
 			ps.setString(2, a.getEmail());
-			ps.setString(2, a.getPhone());
+			ps.setString(3, a.getPhone());
 			ps.setString(4, a.getPassword());
 			i=ps.executeUpdate();
 		} catch (SQLException e) {
@@ -37,10 +37,11 @@ public class AdmindaoImp implements Admindao{
 		}
 		
 	}
-
+	
+	
 	@Override
 	public void updateadmin(Admin a) {
-		String query="update admin set name=?,password=?,phone=? where email=?";
+		String query="update admin set name=?,password=?,phone=?,email=? where adminId=?";
 		int i=0;
 		
 		try {
@@ -49,6 +50,7 @@ public class AdmindaoImp implements Admindao{
 			ps.setString(2, a.getPassword());
 			ps.setString(3, a.getPhone());
 			ps.setString(4, a.getEmail());
+			ps.setInt(5, a.getAdminId());
 			i=ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

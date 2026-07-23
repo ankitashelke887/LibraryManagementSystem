@@ -7,9 +7,9 @@ public class Books {
     private int authorId;
     private int categoryId;
     private int publisherId;
-    private String isbn;
-    private int publicationYear;
-    private int quantity;
+    private int publishYear;
+    private String language;
+    private Double price;
 
     public int getBookId() {
 		return bookId;
@@ -51,28 +51,30 @@ public class Books {
 		this.publisherId = publisherId;
 	}
 
-	public String getIsbn() {
-		return isbn;
+	public int getPublishYear() {
+		return publishYear;
 	}
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+	public void setPublishYear(int publishYear) {
+		this.publishYear = publishYear;
 	}
 
-	public int getPublicationYear() {
-		return publicationYear;
+	public String getLanguage() {
+		return language;
 	}
 
-	public void setPublicationYear(int publicationYear) {
-		this.publicationYear = publicationYear;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
+
+	
 
 }

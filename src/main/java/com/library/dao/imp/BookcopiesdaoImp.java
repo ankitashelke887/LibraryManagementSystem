@@ -91,9 +91,7 @@ public class BookcopiesdaoImp implements Bookcopiesdao {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-
                 bc = new BookCopies();
-
                 bc.setCopyId(rs.getInt("copyId"));
                 bc.setBookId(rs.getInt("bookId"));
                 bc.setLocation(rs.getString("location"));

@@ -32,9 +32,9 @@ public class BooksdaoImp implements Booksdao {
             ps.setInt(2, b.getAuthorId());
             ps.setInt(3, b.getCategoryId());
             ps.setInt(4, b.getPublisherId());
-            ps.setString(5, b.getIsbn());
-            ps.setInt(6, b.getPublicationYear());
-            ps.setInt(7, b.getQuantity());
+            ps.setInt(5, b.getPublishYear());
+            ps.setString(6, b.getLanguage());
+            ps.setDouble(7, b.getPrice());
 
             i = ps.executeUpdate();
 
@@ -46,7 +46,7 @@ public class BooksdaoImp implements Booksdao {
     @Override
     public void updatebook(Books b) {
 
-        String query = "update books set title=?, authorId=?, categoryId=?, publisherId=?, isbn=?, publicationYear=?, quantity=? where bookId=?";
+        String query = "update books set title=?, author_id=?, category_id=?, publisher_id=?, publish_year=?, language=?, price=?  where book_id=?";
         int i = 0;
 
         try {
@@ -56,9 +56,10 @@ public class BooksdaoImp implements Booksdao {
             ps.setInt(2, b.getAuthorId());
             ps.setInt(3, b.getCategoryId());
             ps.setInt(4, b.getPublisherId());
-            ps.setString(5, b.getIsbn());
-            ps.setInt(6, b.getPublicationYear());
-            ps.setInt(7, b.getQuantity());
+            ps.setInt(5, b.getPublishYear());
+            ps.setString(6, b.getLanguage());
+            ps.setDouble(7, b.getPrice());
+
             ps.setInt(8, b.getBookId());
 
             i = ps.executeUpdate();
@@ -71,7 +72,7 @@ public class BooksdaoImp implements Booksdao {
     @Override
     public void deletebook(Integer bookId) {
 
-        String query = "delete from books where bookId=?";
+        String query = "delete from books where book_id=?";
         int i = 0;
 
         try {
@@ -102,14 +103,14 @@ public class BooksdaoImp implements Booksdao {
 
                 b = new Books();
 
-                b.setBookId(rs.getInt("bookId"));
+                b.setBookId(rs.getInt("book_id"));
                 b.setTitle(rs.getString("title"));
-                b.setAuthorId(rs.getInt("authorId"));
-                b.setCategoryId(rs.getInt("categoryId"));
-                b.setPublisherId(rs.getInt("publisherId"));
-                b.setIsbn(rs.getString("isbn"));
-                b.setPublicationYear(rs.getInt("publicationYear"));
-                b.setQuantity(rs.getInt("quantity"));
+                b.setAuthorId(rs.getInt("author_id"));
+                b.setCategoryId(rs.getInt("category_id"));
+                b.setPublisherId(rs.getInt("publisher_id"));
+                b.setPublishYear(rs.getInt("publish_year"));
+                b.setLanguage(rs.getString("language"));
+                b.setPrice(rs.getDouble("price"));
 
                 booklist.add(b);
             }
@@ -124,7 +125,7 @@ public class BooksdaoImp implements Booksdao {
     @Override
     public Books getbytitleandcategoryid(String title, Integer categoryId) {
 
-        String query = "select * from books where title=? and categoryId=?";
+        String query = "select * from books where title=? and category_id=?";
 
         Books b = null;
 
@@ -140,14 +141,15 @@ public class BooksdaoImp implements Booksdao {
 
                 b = new Books();
 
-                b.setBookId(rs.getInt("bookId"));
+                b.setBookId(rs.getInt("book_id"));
                 b.setTitle(rs.getString("title"));
-                b.setAuthorId(rs.getInt("authorId"));
-                b.setCategoryId(rs.getInt("categoryId"));
-                b.setPublisherId(rs.getInt("publisherId"));
-                b.setIsbn(rs.getString("isbn"));
-                b.setPublicationYear(rs.getInt("publicationYear"));
-                b.setQuantity(rs.getInt("quantity"));
+                b.setAuthorId(rs.getInt("author_id"));
+                b.setCategoryId(rs.getInt("category_id"));
+                b.setPublisherId(rs.getInt("publisher_id"));
+                b.setPublishYear(rs.getInt("publish_year"));
+                b.setLanguage(rs.getString("language"));
+                b.setPrice(rs.getDouble("price"));
+                
             }
 
         } catch (SQLException e) {

@@ -38,7 +38,7 @@ public class PublishersdaoImp implements Publishersdao {
 
     @Override
     public void updatepublisher(Publishers p) {
-        String query = "update publishers set pName=?, pEmail=?, pPhone=?, pAddress=? where publisherId=?";
+        String query = "update publishers set p_name=?, p_email=?, p_phone=?, p_address=? where publisher_id=?";
         int i = 0;
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -56,7 +56,7 @@ public class PublishersdaoImp implements Publishersdao {
 
     @Override
     public void deletepublisher(Integer publisherId) {
-        String query = "delete from publishers where publisherId=?";
+        String query = "delete from publishers where publisher_id=?";
         int i = 0;
 
         try {
@@ -79,11 +79,11 @@ public class PublishersdaoImp implements Publishersdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 p = new Publishers();
-                p.setPublisherId(rs.getInt("publisherId"));
-                p.setpName(rs.getString("pName"));
-                p.setpEmail(rs.getString("pEmail"));
-                p.setpPhone(rs.getString("pPhone"));
-                p.setpAddress(rs.getString("pAddress"));
+                p.setPublisherId(rs.getInt("publisher_id"));
+                p.setpName(rs.getString("p_name"));
+                p.setpEmail(rs.getString("p_email"));
+                p.setpPhone(rs.getString("p_phone"));
+                p.setpAddress(rs.getString("p_address"));
                 publisherList.add(p);
             }
 
@@ -95,7 +95,7 @@ public class PublishersdaoImp implements Publishersdao {
 
     @Override
     public Publishers getbymail(String pEmail) {
-        String query = "select * from publishers where pEmail=?";
+        String query = "select * from publishers where p_email=?";
         Publishers p = null;
 
         try {
@@ -104,11 +104,11 @@ public class PublishersdaoImp implements Publishersdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 p = new Publishers();
-                p.setPublisherId(rs.getInt("publisherId"));
-                p.setpName(rs.getString("pName"));
-                p.setpEmail(rs.getString("pEmail"));
-                p.setpPhone(rs.getString("pPhone"));
-                p.setpAddress(rs.getString("pAddress"));
+                p.setPublisherId(rs.getInt("publisher_id"));
+                p.setpName(rs.getString("p_name"));
+                p.setpEmail(rs.getString("p_email"));
+                p.setpPhone(rs.getString("p_phone"));
+                p.setpAddress(rs.getString("p_address"));
             }
 
         } catch (SQLException e) {

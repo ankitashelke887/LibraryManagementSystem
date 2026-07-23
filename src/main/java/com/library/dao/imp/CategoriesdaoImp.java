@@ -37,7 +37,7 @@ public class CategoriesdaoImp implements Categoriesdao {
 
     @Override
     public void updatecategory(Categories c) {
-        String query = "update categories set cName=?, description=? where categoryId=?";
+        String query = "update categories set c_name=?, description=? where category_id=?";
         int i = 0;
 
         try {
@@ -54,7 +54,7 @@ public class CategoriesdaoImp implements Categoriesdao {
 
     @Override
     public void deletecategory(Integer categoryId) {
-        String query = "delete from categories where categoryId=?";
+        String query = "delete from categories where category_id=?";
         int i = 0;
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -76,8 +76,8 @@ public class CategoriesdaoImp implements Categoriesdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 c = new Categories();
-                c.setCategoryId(rs.getInt("categoryId"));
-                c.setcName(rs.getString("cName"));
+                c.setCategoryId(rs.getInt("category_id"));
+                c.setcName(rs.getString("c_name"));
                 c.setDescription(rs.getString("description"));
                 categorylist.add(c);
             }
@@ -90,7 +90,7 @@ public class CategoriesdaoImp implements Categoriesdao {
 
     @Override
     public Categories getbyidandname(Integer categoryId, String cName) {
-        String query = "select * from categories where categoryId=? and cName=?";
+        String query = "select * from categories where category_id=? and c_name=?";
         Categories c = null;
 
         try {
@@ -101,8 +101,8 @@ public class CategoriesdaoImp implements Categoriesdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 c = new Categories();
-                c.setCategoryId(rs.getInt("categoryId"));
-                c.setcName(rs.getString("cName"));
+                c.setCategoryId(rs.getInt("category_id"));
+                c.setcName(rs.getString("c_name"));
                 c.setDescription(rs.getString("description"));
             }
 

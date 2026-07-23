@@ -4,13 +4,14 @@ import java.sql.Date;
 
 public class IssuedBooks {
     
-	 private int issueId;
+	    private int issueId;
 	    private int userId;
-	    private int bookId;
+	    private int copyId;
 	    private Date issueDate;
 	    private Date dueDate;
 	    private Date returnDate;
 	    private String status;
+	    private Double fineAmount;
 
 	    public int getIssueId() {
 			return issueId;
@@ -28,12 +29,12 @@ public class IssuedBooks {
 			this.userId = userId;
 		}
 
-		public int getBookId() {
-			return bookId;
+		public int getCopyId() {
+			return copyId;
 		}
 
-		public void setBookId(int bookId) {
-			this.bookId = bookId;
+		public void setCopyId(int copyId) {
+			this.copyId = copyId;
 		}
 
 		public Date getIssueDate() {
@@ -67,5 +68,15 @@ public class IssuedBooks {
 		public void setStatus(String status) {
 			this.status = status;
 		}
+
+		public Double getFineAmount() {
+			return fineAmount;
+		}
+
+		public void setFineAmount(Double fineAmount) {
+			this.fineAmount = fineAmount;
+		}
+		
+		
 
 }

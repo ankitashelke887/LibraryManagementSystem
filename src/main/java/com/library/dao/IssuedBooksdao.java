@@ -14,7 +14,7 @@ public interface IssuedBooksdao {
 	
 	List<IssuedBooks> getallibooks();
 	
-	IssuedBooks getbybookid(Integer bookId); 
+	IssuedBooks getByCopyid(Integer copyId); 
 	
 
 }

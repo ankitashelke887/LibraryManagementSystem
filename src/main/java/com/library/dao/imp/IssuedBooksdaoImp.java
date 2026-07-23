@@ -21,17 +21,19 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
 
     @Override
     public void addissuedbook(IssuedBooks ib) {
-        String query = "insert into issuedbooks values(0,?,?,?,?,?,?)";
+        String query = "insert into issued_books values(0,?,?,?,?,?,?,?)";
         int i = 0;
 
         try {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, ib.getUserId());
-            ps.setInt(2, ib.getBookId());
+            ps.setInt(2, ib.getCopyId());
             ps.setDate(3, ib.getIssueDate());
             ps.setDate(4, ib.getDueDate());
             ps.setDate(5, ib.getReturnDate());
-            ps.setString(6, ib.getStatus());
+            ps.setDouble(6, ib.getFineAmount());
+            ps.setString(7, ib.getStatus());
+          
             i = ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -41,18 +43,19 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
 
     @Override
     public void updateibooks(IssuedBooks ib) {
-        String query = "update issuedbooks set userId=?, bookId=?, issueDate=?, dueDate=?, returnDate=?, status=? where issueId=?";
+        String query = "update issued_books set user_id=?, copy_id=?, issue_date=?, due_date=?, return_date=?,fine_amount=?, status=? where issue_id=?";
         int i = 0;
 
         try {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, ib.getUserId());
-            ps.setInt(2, ib.getBookId());
+            ps.setInt(2, ib.getCopyId());
             ps.setDate(3, ib.getIssueDate());
             ps.setDate(4, ib.getDueDate());
             ps.setDate(5, ib.getReturnDate());
-            ps.setString(6, ib.getStatus());
-            ps.setInt(7, ib.getIssueId());
+            ps.setDouble(6, ib.getFineAmount());
+            ps.setString(7, ib.getStatus());
+            ps.setInt(8, ib.getIssueId());
             i = ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -62,7 +65,7 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
 
     @Override
     public void deleteibooks(Integer issueId) {
-        String query = "delete from issuedbooks where issueId=?";
+        String query = "delete from issued_books where issue_id=?";
         int i = 0;
 
         try {
@@ -77,7 +80,7 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
 
     @Override
     public List<IssuedBooks> getallibooks() {
-        String query = "select * from issuedbooks";
+        String query = "select * from issued_books";
         List<IssuedBooks> issuedList = new ArrayList<IssuedBooks>();
         IssuedBooks ib = null;
 
@@ -86,13 +89,14 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ib = new IssuedBooks();
-                ib.setIssueId(rs.getInt("issueId"));
-                ib.setUserId(rs.getInt("userId"));
-                ib.setBookId(rs.getInt("bookId"));
-                ib.setIssueDate(rs.getDate("issueDate"));
-                ib.setDueDate(rs.getDate("dueDate"));
-                ib.setReturnDate(rs.getDate("returnDate"));
+                ib.setIssueId(rs.getInt("issue_id"));
+                ib.setUserId(rs.getInt("user_id"));
+                ib.setCopyId(rs.getInt("copy_id"));
+                ib.setIssueDate(rs.getDate("issue_date"));
+                ib.setDueDate(rs.getDate("due_date"));
+                ib.setReturnDate(rs.getDate("return_date"));
                 ib.setStatus(rs.getString("status"));
+                ib.setFineAmount(rs.getDouble("fine_amount"));
                 issuedList.add(ib);
             }
 
@@ -102,24 +106,26 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
         return issuedList;
     }
 
-    @Override
-    public IssuedBooks getbybookid(Integer bookId) {
-        String query = "select * from issuedbooks where bookId=?";
+	@Override
+	public IssuedBooks getByCopyid(Integer copyId) {
+		String query = "select * from issued_books where copy_id=?";
         IssuedBooks ib = null;
 
         try {
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, bookId);
+            ps.setInt(1, copyId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ib = new IssuedBooks();
-                ib.setIssueId(rs.getInt("issueId"));
-                ib.setUserId(rs.getInt("userId"));
-                ib.setBookId(rs.getInt("bookId"));
-                ib.setIssueDate(rs.getDate("issueDate"));
-                ib.setDueDate(rs.getDate("dueDate"));
-                ib.setReturnDate(rs.getDate("returnDate"));
+                ib.setIssueId(rs.getInt("issue_id"));
+                ib.setUserId(rs.getInt("user_id"));
+                ib.setIssueDate(rs.getDate("issue_date"));
+                ib.setDueDate(rs.getDate("due_date"));
+                ib.setReturnDate(rs.getDate("return_date"));
                 ib.setStatus(rs.getString("status"));
+                ib.setFineAmount(rs.getDouble("fine_amount"));
+                ib.setCopyId(rs.getInt("copy_id"));
+                
             }
 
         } catch (SQLException e) {
@@ -130,3 +136,4 @@ public class IssuedBooksdaoImp implements IssuedBooksdao {
     }
 
 }
+   
