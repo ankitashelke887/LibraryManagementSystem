@@ -1,0 +1,169 @@
+:root {
+
+    --library-blue:#061826;
+    --library-navy:#0b2d4d;
+    --library-gold:#d4af37;
+    --black:#000000;
+    --white:#ffffff;
+    --gray-light:#f5f5f5;
+    --gray-medium:#e0e0e0;
+    --gray-dark:#333333;
+
+}
+
+
+
+.book-card {
+
+    transition:transform .3s ease,box-shadow .3s ease;
+
+    border:1px solid var(--gray-medium);
+
+}
+
+
+
+.book-card:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+.nav-link {
+
+    position:relative;
+
+}
+
+
+
+.nav-link.active::after {
+
+    content:'';
+
+    position:absolute;
+
+    bottom:-5px;
+
+    left:0;
+
+    right:0;
+
+    height:3px;
+
+    background:var(--library-gold);
+
+}
+
+
+
+.hero-gradient {
+
+background:linear-gradient(
+135deg,
+#061826 0%,
+#0b2d4d 50%,
+#16466d 100%
+);
+
+}
+
+
+
+.btn-primary {
+
+background:var(--library-gold);
+
+color:#061826;
+
+transition:.3s;
+
+}
+
+
+
+.btn-primary:hover {
+
+background:#c49b25;
+
+}
+
+
+
+.btn-outline {
+
+border:2px solid var(--library-gold);
+
+color:var(--library-gold);
+
+}
+
+
+
+.btn-outline:hover {
+
+background:var(--library-gold);
+
+color:white;
+
+}
+
+
+
+.category-tag {
+
+font-weight:600;
+
+padding:4px 12px;
+
+border-radius:20px;
+
+font-size:.75rem;
+
+display:inline-block;
+
+}
+
+
+
+.category-fiction {
+
+background:rgba(156,39,176,.15);
+
+color:#9c27b0;
+
+}
+
+
+
+.category-science {
+
+background:rgba(0,150,136,.15);
+
+color:#009688;
+
+}
+
+
+
+.category-technology {
+
+background:rgba(33,150,243,.15);
+
+color:#2196f3;
+
+}
+
+
+
+.category-history {
+
+background:rgba(255,152,0,.15);
+
+color:#ff9800;
+
+}
